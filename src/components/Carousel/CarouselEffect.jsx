@@ -11,13 +11,13 @@ const CarouselEffect = () => {
         <Carousel
             autoPlay={true}
             infiniteLoop={true}
-            showIndicators={true}
-            showThumbs={true}
+            showIndicators={false}
+            showThumbs={false}
             >
                 {
 
                 img.map((imageItemLink)=>{
-                    return <img src={imageItemLink}/>
+                    return <img key={imageItemLink} src={imageItemLink}/>
 
                 })
             }
