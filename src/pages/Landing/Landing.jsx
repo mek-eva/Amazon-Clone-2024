@@ -1,12 +1,18 @@
 import React from 'react'
+import LayOut from '../../components/Layout/LayOut';
+import  Carousel  from '../../components/Carousel/CarouselEffect'
+import Category from '../../components/Category/Category'
+import Product from '../../components/product/Product';
+
+
 
 const Landing = () => {
   return (
-    <div>
-      <Carousel />
+    <LayOut>
+      <Carousel/>
       <Category />
       <Product />
-    </div>
+    </LayOut>
   );
 }
 

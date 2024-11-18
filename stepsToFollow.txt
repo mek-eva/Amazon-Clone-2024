@@ -1,9 +1,0 @@
-3rd vedio..>install react-responsive-carousel
-fakestoreapi.com
-
-fetch('https://fakestoreapi.com/products')
-
-npm install @mui/material @emotion/react @emotion/styled
-https://mui.com/material-ui/react-rating/
-
-Numeraljs.com

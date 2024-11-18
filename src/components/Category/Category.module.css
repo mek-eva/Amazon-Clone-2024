@@ -23,8 +23,7 @@
 .category p {
   font-size: 12px;
   font-weight: bold;
-  color: #c71f49;
-   /* color: rgb(9,132,209); */
+  color: rgb(9,132,209); 
 }
 /* This for catagory */
 .Category_container {
