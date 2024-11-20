@@ -4,8 +4,9 @@ import LayOut from '../../components/Layout/LayOut';
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import { productUrl } from '../../Api/endPoints';
-import ProductCard from '../../components/product/ProductCard';
+import ProductCard from '../../components/Product/ProductCard';
 import Loader from '../../components/Loader/Loader'
+
 
 const ProductDetail = () => {
    const [product, setproduct] = useState();
@@ -13,6 +14,8 @@ const ProductDetail = () => {
   const {productId}= useParams()
  
   useEffect(()=>{
+      setIsLoading(true);
+
     axios.get(`${productUrl}/products/${productId}`)
     .then ((res)=>{
        setproduct(res.data);
@@ -25,17 +28,26 @@ const ProductDetail = () => {
 
   },[])
   console.log(product)
+
+  if (!product) {
+    return <div>Loading...</div>; // Show loading while fetching data
+  }
+
   return (
+
     <LayOut>
-      {isLoading? (<Loader/>):(product&& (<ProductCard Product={product} 
+      {/* {isLoading? (<Loader/>):(product&& (<ProductCard Product={product}  */}
+
+      {isLoading? (<Loader/>):(<ProductCard 
+      product={product}
       flex={true}
       renderDesc={true}
-      />
-    ))}
-     
+      renderAdd={true} />
+      )
+      }
      
     </LayOut>
-  );
+  )
 }
 
 export default ProductDetail
