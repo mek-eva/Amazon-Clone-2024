@@ -22,7 +22,7 @@ const increment = (item)=>{
 }
 const decrement=(id)=>{
   dispatch({
-    type: Type.REMOVE_FROM_MASKET,
+    type: Type.REMOVE_FROM_BASKET,
     id
   });
 }
@@ -39,9 +39,8 @@ const decrement=(id)=>{
           ) : (
             basket?.map((item, i) => {
               return (
-                <section className={classes.cart_product}>
+                <section className={classes.cart_product} key={i}>
                   <ProductCard
-                    key={i}
                     product={item}
                     renderDesc={true}
                     renderAdd={false}
@@ -52,15 +51,14 @@ const decrement=(id)=>{
                       className={classes.btn}
                       onClick={() => increment(item)}
                     >
-                      <IoIosArrowUp size={25}/>
+                      <IoIosArrowUp size={25} />
                     </button>
                     <span>{item.amount}</span>
                     <button
                       className={classes.btn}
                       onClick={() => decrement(item.id)}
                     >
-                     
-                      <IoIosArrowDown size={25}/>
+                      <IoIosArrowDown size={25} />
                     </button>
                   </div>
                 </section>
@@ -80,7 +78,7 @@ const decrement=(id)=>{
               <input type="checkbox" />
               <small>This order contains a gift</small>
             </span>
-            <Link to="/Payments">Cntinue to checkbox</Link>
+            <Link to="/Payments">continue to checkbox</Link>
           </div>
         )}
       </section>

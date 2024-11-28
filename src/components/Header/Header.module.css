@@ -3,8 +3,8 @@
     margin:0;
 }
 .fixed{
-    position: sticky;
-    margin: 0;
+    position:sticky;
+    top: 0;
     z-index: 100;
 }
 
@@ -16,6 +16,7 @@
     align-items: center;
     color: white;
     height:70px;
+   
 }
 .logo_container{
     display:flex;

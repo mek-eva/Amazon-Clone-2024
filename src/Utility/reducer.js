@@ -1,18 +1,19 @@
 import {Type} from './action.type'
 
 export const initialState= {
-    basket:[]
+    basket:[],
+    user:null
 }
 
 export const reducer=(state, action)=>{
     switch (action.type){
         case Type.ADD_TO_BASKET:
             // check if the item exists
-            const existingItem= state.basket.find((item)=>item.id===action.item.id)
+            const existingItem=state.basket.find((item)=>item.id===action.item.id)
             if(!existingItem){
             return{
                 ...state,
-                basket : [...state.basket,{...action.item, amount:1}]
+                basket:[...state.basket,{...action.item, amount:1}]
             }
         }else{
             const updatedBasket = state.basket.map((item)=>{
@@ -25,8 +26,8 @@ export const reducer=(state, action)=>{
                 }
         } 
         
-        case Type.REMOVE_FROM_MASKET :
-            const index= state.basket.findIndex(item=>item.id===action.id)
+        case Type.REMOVE_FROM_BASKET:
+            const index= state.basket.findIndex((item)=>item.id===action.id)
             let newBasket=[...state.basket]
 
             if(index >=0)
@@ -40,7 +41,18 @@ export const reducer=(state, action)=>{
             return{
                 ...state,
                 basket:newBasket
-            }
+            };
+            case Type.EMPTY_BASKET:
+                return{
+                    ...state,
+                    basket:[]
+                }
+
+            case Type.SET_USER:
+                return{
+                    ...state,
+                    user:action.user
+                }
             default:
                 return state;
     }
