@@ -22,9 +22,6 @@ const ProductCard = ({product,flex,renderDesc,renderAdd}) => {
           })
         
         }
-    
-
-
 
   return (
     <div
